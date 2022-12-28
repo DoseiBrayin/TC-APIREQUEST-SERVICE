@@ -69,13 +69,20 @@ CREATE TABLE IF NOT EXISTS `mydb`.`petition` (
   `create_time` TIMESTAMP NOT NULL,
   `client_idclient` VARCHAR(15) NOT NULL,
   `plataform` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idpettion`, `client_idclient`),
+  `idcustomer` VARCHAR(16) NOT NULL,
+  PRIMARY KEY (`idpettion`, `client_idclient`,`idcustomer`),
   INDEX `fk_petition_client1_idx` (`client_idclient` ) ,
+  INDEX `fk_petition_idcustomer1_idx` (`idcustomer`),
   CONSTRAINT `fk_petition_client1`
     FOREIGN KEY (`client_idclient`)
     REFERENCES `mydb`.`client` (`idclient`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON UPDATE NO ACTION,
+    CONSTRAINT `fk_petition_idcustomer1`
+        FOREIGN KEY (`idcustomer`)
+        REFERENCES `mydb`.`user` (`username`)
+         ON DELETE NO ACTION
+         ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
