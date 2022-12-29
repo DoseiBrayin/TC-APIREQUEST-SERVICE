@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`user` (
   `email` VARCHAR(255) NOT NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+   `full_name` VARCHAR(45) NOT NULL,
   UNIQUE  `username_UNIQUE` (`username`),
   UNIQUE  `email_UNIQUE` (`email` ) );
 
