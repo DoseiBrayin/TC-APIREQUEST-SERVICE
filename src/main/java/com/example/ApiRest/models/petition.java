@@ -13,6 +13,8 @@ public class petition {
     private Date create_stamp;
     private String plataform;
 
+    @ManyToOne
+    @JoinColumn(name = "client_idclient")
     private client client;
 
     public com.example.ApiRest.models.client getClient() {
@@ -22,5 +24,6 @@ public class petition {
     public void setClient(com.example.ApiRest.models.client client) {
         this.client = client;
     }
+
 
 }
