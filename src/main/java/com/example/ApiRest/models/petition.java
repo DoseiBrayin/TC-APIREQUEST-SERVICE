@@ -1,8 +1,6 @@
 package com.example.ApiRest.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
@@ -15,6 +13,16 @@ public class petition {
     private Date create_stamp;
     private String plataform;
 
+    @ManyToOne
+    @JoinColumn(name = "client_id_client")
     private client client;
+
+    public com.example.ApiRest.models.client getClient() {
+        return client;
+    }
+
+    public void setClient(com.example.ApiRest.models.client client) {
+        this.client = client;
+    }
 
 }
