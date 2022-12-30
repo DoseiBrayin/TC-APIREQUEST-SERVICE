@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table (name = "client")
 public class client {
     @Id
-    private String id_client;
+    private String idclient;
 
     @Column(unique = true)
     private String email;

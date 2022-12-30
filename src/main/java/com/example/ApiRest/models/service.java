@@ -10,7 +10,7 @@ public class service {
     private String name_service;
 
     @ManyToOne
-    @JoinColumn(name = "client_id_client")
+    @JoinColumn(name = "client_idclient")
     private  client client;
 
     public com.example.ApiRest.models.client getClient() {

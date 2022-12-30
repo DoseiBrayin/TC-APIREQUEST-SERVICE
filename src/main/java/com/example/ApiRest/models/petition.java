@@ -13,8 +13,6 @@ public class petition {
     private Date create_stamp;
     private String plataform;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id_client")
     private client client;
 
     public com.example.ApiRest.models.client getClient() {
