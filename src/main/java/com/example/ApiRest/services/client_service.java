@@ -1,5 +1,5 @@
 package com.example.ApiRest.services;
 
-public interface clients {
+public interface client_service {
 
 }
