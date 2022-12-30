@@ -9,7 +9,17 @@ public class type_service {
     private String idtype_service;
     private String service_type;
 
+    @ManyToOne
+    @JoinColumn(name = "services_idservices")
     private service services;
+
+    public service getServices() {
+        return services;
+    }
+
+    public void setServices(service services) {
+        this.services = services;
+    }
 
 
 }
