@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "service")
 public class service {
     @Id
-    private String idservice;
+    private String idservices;
     private String name_service;
 
     @ManyToOne
