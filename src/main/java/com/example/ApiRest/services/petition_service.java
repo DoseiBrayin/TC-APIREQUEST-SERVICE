@@ -100,7 +100,7 @@ public class petition_service implements petition_repository{
 
     @Override
     public <S extends petition> S save(S entity) {
-        return null;
+        return petition_repository.save(entity);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class petition_service implements petition_repository{
 
     @Override
     public long count() {
-        return 0;
+        return petition_repository.count();
     }
 
     @Override
@@ -160,7 +160,7 @@ public class petition_service implements petition_repository{
 
     @Override
     public List<petition> findAll(Sort sort) {
-        return null;
+        return petition_repository.findAll(sort);
     }
 
     @Override

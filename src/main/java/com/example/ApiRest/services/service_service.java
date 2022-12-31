@@ -100,7 +100,7 @@ public class service_service implements service_repositiry {
 
     @Override
     public <S extends service> S save(S entity) {
-        return null;
+        return service_repositiry.save(entity);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class service_service implements service_repositiry {
 
     @Override
     public List<service> findAll() {
-        return null;
+        return service_repositiry.findAll();
     }
 
     @Override

@@ -100,7 +100,7 @@ public class type_service_service implements type_service_repository {
 
     @Override
     public <S extends type_service> S save(S entity) {
-        return null;
+        return type_service_repository.save(entity);
     }
 
     @Override
@@ -120,7 +120,7 @@ public class type_service_service implements type_service_repository {
 
     @Override
     public List<type_service> findAll() {
-        return null;
+        return type_service_repository.findAll();
     }
 
     @Override

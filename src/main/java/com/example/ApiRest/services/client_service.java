@@ -17,10 +17,9 @@ import java.util.function.Function;
 public class client_service implements client_repository {
     @Autowired
     private client_repository client_repository;
-
+        
     @Override
     public void flush() {
-
     }
 
     @Override
@@ -110,7 +109,7 @@ public class client_service implements client_repository {
 
     @Override
     public Optional<client> findById(String s) {
-        return Optional.empty();
+        return client_repository.findById(s);
     }
 
     @Override
@@ -120,7 +119,7 @@ public class client_service implements client_repository {
 
     @Override
     public List<client> findAll() {
-        return null;
+        return client_repository.findAll();
     }
 
     @Override
@@ -160,7 +159,7 @@ public class client_service implements client_repository {
 
     @Override
     public List<client> findAll(Sort sort) {
-        return null;
+        return client_repository.findAll(sort);
     }
 
     @Override
