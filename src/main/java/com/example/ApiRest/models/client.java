@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @Table (name = "client")
@@ -11,20 +12,19 @@ public class client {
     @Id
     private String idclient;
 
-    @Column(unique = true)
-    private String email;
+    private String client_email;
 
-    private String dir;
+    private String direction;
 
     private String full_name;
 
     public client() {
     }
 
-    public client(String idclient, String email, String dir, String full_name) {
+    public client(String idclient, String client_email, String direction, String full_name) {
         this.idclient = idclient;
-        this.email = email;
-        this.dir = dir;
+        this.client_email = client_email;
+        this.direction = direction;
         this.full_name = full_name;
     }
 
@@ -36,20 +36,20 @@ public class client {
         this.idclient = idclient;
     }
 
-    public String getEmail() {
-        return email;
+    public String getClient_email() {
+        return client_email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setClient_email(String client_email) {
+        this.client_email = client_email;
     }
 
-    public String getDir() {
-        return dir;
+    public String getDirection() {
+        return direction;
     }
 
-    public void setDir(String dir) {
-        this.dir = dir;
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
     public String getFull_name() {

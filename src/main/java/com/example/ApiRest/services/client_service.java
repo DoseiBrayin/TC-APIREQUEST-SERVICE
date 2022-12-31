@@ -159,7 +159,7 @@ public class client_service implements client_repository {
 
     @Override
     public List<client> findAll(Sort sort) {
-        return client_repository.findAll(sort);
+        return null;
     }
 
     @Override
