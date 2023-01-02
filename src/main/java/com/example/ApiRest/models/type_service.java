@@ -3,7 +3,7 @@ package com.example.ApiRest.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "type_service")
+@Table(name = "type_service",schema = "mydb")
 public class type_service {
     @Id
     private String idtype_service;

@@ -1,40 +1,47 @@
 package com.example.ApiRest.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 @Entity
-@Table(name = "petition")
+@Table(name = "petition", schema = "mydb")
 public class petition {
+
     @Id
-    private String idpetition;
+    @Column(name = "idpettion", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @TableGenerator(name = "tab", initialValue = 0)
+    private int idPetition;
+
+    @Column(name = "description", nullable = false, length = 500)
     private String description;
+
+    @Column(name = "state", nullable = false, length = 45)
     private String state;
-    private Date create_stamp;
-    private String plataform;
+
+    @Column(name = "create_time", nullable = false)
+    @CreationTimestamp
+    private Timestamp createTime;
+
+    @Column(name = "plataform", nullable = false, length = 45)
+    private String platform;
 
     @ManyToOne
-    @JoinColumn(name = "client_idclient")
+    @JoinColumn(name = "client_idclient", referencedColumnName = "idclient", nullable = false)
     private client client;
 
-    public petition() {
+    @ManyToOne
+    @JoinColumn(name = "idcustomer", referencedColumnName = "username", nullable = false)
+    private User customer;
+
+    public int getIdPetition() {
+        return idPetition;
     }
 
-    public petition(String idpetition, String description, String state, Date create_stamp, String plataform, com.example.ApiRest.models.client client) {
-        this.idpetition = idpetition;
-        this.description = description;
-        this.state = state;
-        this.create_stamp = create_stamp;
-        this.plataform = plataform;
-        this.client = client;
-    }
-
-    public String getIdpetition() {
-        return idpetition;
-    }
-
-    public void setIdpetition(String idpetition) {
-        this.idpetition = idpetition;
+    public void setIdPetition(int idPetition) {
+        this.idPetition = idPetition;
     }
 
     public String getDescription() {
@@ -53,20 +60,20 @@ public class petition {
         this.state = state;
     }
 
-    public Date getCreate_stamp() {
-        return create_stamp;
+    public Timestamp getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_stamp(Date create_stamp) {
-        this.create_stamp = create_stamp;
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlatform() {
+        return platform;
     }
 
-    public void setPlataform(String plataform) {
-        this.plataform = plataform;
+    public void setPlatform(String platform) {
+        this.platform = platform;
     }
 
     public com.example.ApiRest.models.client getClient() {
@@ -77,5 +84,11 @@ public class petition {
         this.client = client;
     }
 
+    public User getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
 }

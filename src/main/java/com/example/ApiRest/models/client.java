@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
-@Table (name = "client")
+@Table (name = "client",schema = "mydb")
 public class client {
     @Id
     private String idclient;
