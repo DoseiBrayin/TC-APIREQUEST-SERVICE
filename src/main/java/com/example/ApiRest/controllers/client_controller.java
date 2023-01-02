@@ -20,20 +20,16 @@ public class client_controller {
         return  ResponseEntity.ok(client_service.findAll());
     }
 
-    @GetMapping ("/{id}")
-    private ResponseEntity<client> getByID(@PathVariable String id){
+    @GetMapping ("/id")
+    private ResponseEntity<client> getByID(@RequestParam String id){
         Optional<client> Response = client_service.findById(id);
         return Response.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping ("/address")
-    private ResponseEntity<List<client>> getByAddress(@RequestParam String address){
-        System.out.println(address);
-        List<client> items = client_service.findByAddress(address);
-        if (items.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(items);
+    @GetMapping ("/")
+    private ResponseEntity<List<client>> getByAddress(@RequestParam String address,@RequestParam String id,@RequestParam String name,@RequestParam String email){
+        if (client_service.findClient(address, id, name, email).isEmpty()) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(client_service.findClient(address, id, name, email));
     }
     }
 
