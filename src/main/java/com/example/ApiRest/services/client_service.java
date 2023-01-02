@@ -17,7 +17,9 @@ import java.util.function.Function;
 public class client_service implements client_repository {
     @Autowired
     private client_repository client_repository;
-        
+
+
+
     @Override
     public void flush() {
     }
@@ -165,5 +167,10 @@ public class client_service implements client_repository {
     @Override
     public Page<client> findAll(Pageable pageable) {
         return null;
+    }
+
+    @Override
+    public List<client> findByAddress(String address) {
+        return client_repository.findByAddress(address);
     }
 }

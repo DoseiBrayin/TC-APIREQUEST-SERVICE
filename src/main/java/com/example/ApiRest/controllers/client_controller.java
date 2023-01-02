@@ -26,4 +26,14 @@ public class client_controller {
         return Response.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-}
+    @GetMapping ("/address")
+    private ResponseEntity<List<client>> getByAddress(@RequestParam String address){
+        System.out.println(address);
+        List<client> items = client_service.findByAddress(address);
+        if (items.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(items);
+    }
+    }
+
