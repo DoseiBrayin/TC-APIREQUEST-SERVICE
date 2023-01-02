@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 public class petition {
 
     @Id
-    @Column(name = "idpettion", nullable = false)
+    @Column(name = "idpettion", nullable = false,columnDefinition = "INT(11) UNSIGNED ZEROFILL")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @TableGenerator(name = "tab", initialValue = 0)
     private int idPetition;
