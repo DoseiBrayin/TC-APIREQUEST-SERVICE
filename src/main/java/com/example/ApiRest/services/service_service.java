@@ -110,7 +110,7 @@ public class service_service implements service_repositiry {
 
     @Override
     public Optional<service> findById(String s) {
-        return Optional.empty();
+        return service_repositiry.findById(s);
     }
 
     @Override
@@ -166,5 +166,10 @@ public class service_service implements service_repositiry {
     @Override
     public Page<service> findAll(Pageable pageable) {
         return null;
+    }
+
+    @Override
+    public Optional<service> findByClient(String client) {
+        return service_repositiry.findByClient(client);
     }
 }
