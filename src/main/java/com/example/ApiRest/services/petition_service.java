@@ -110,7 +110,7 @@ public class petition_service implements petition_repository{
 
     @Override
     public Optional<petition> findById(String s) {
-        return Optional.empty();
+        return petition_repository.findById(s);
     }
 
     @Override
@@ -135,12 +135,12 @@ public class petition_service implements petition_repository{
 
     @Override
     public void deleteById(String s) {
-
+        petition_repository.deleteById(s);
     }
 
     @Override
     public void delete(petition entity) {
-
+        petition_repository.delete(entity);
     }
 
     @Override
