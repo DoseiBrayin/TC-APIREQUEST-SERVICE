@@ -11,8 +11,8 @@ import java.util.List;
 public interface client_repository extends JpaRepository<client,String>{
     @Query(value = "select c1_0.idclient,c1_0.client_email,c1_0.direction,c1_0.full_name " +
             "from client c1_0 " +
-            "where c1_0.direction = :direction or c1_0.idclient = :id or c1_0.full_name = :name or c1_0.client_email = :email",
+            "where c1_0.direction like %:client%  or c1_0.idclient like %:client% or c1_0.full_name like %:client% or c1_0.client_email like %:client%",
             nativeQuery = true)
-    List<client> findClient(@Param("direction") String address, @Param("id") String id, @Param("name") String name,@Param("email") String email);
+    List<client> findClient(@Param("client") String client);
 
 }

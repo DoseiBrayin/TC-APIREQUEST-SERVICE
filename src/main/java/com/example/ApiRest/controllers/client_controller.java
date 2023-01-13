@@ -27,9 +27,9 @@ public class client_controller {
     }
 
     @GetMapping ("/")
-    private ResponseEntity<List<client>> getByAddress(@RequestParam String address,@RequestParam String id,@RequestParam String name,@RequestParam String email){
-        if (client_service.findClient(address, id, name, email).isEmpty()) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(client_service.findClient(address, id, name, email));
+    private ResponseEntity<List<client>> getByAddress(@RequestParam String client){
+        if (client_service.findClient(client).isEmpty()) return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(client_service.findClient(client));
     }
     }
 

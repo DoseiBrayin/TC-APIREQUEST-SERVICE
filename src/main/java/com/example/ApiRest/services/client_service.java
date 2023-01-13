@@ -170,7 +170,7 @@ public class client_service implements client_repository {
     }
 
     @Override
-    public List<client> findClient(String address, String id, String name, String email) {
-        return client_repository.findClient(address, id, name, email);
+    public List<client> findClient(String client) {
+        return client_repository.findClient(client);
     }
 }
