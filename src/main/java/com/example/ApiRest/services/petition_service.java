@@ -120,7 +120,7 @@ public class petition_service implements petition_repository{
 
     @Override
     public List<petition> findAll() {
-        return null;
+        return petition_repository.findAll();
     }
 
     @Override
